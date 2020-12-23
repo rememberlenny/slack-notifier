@@ -106,6 +106,31 @@ message = "Write to [#{link_text}](mailto:user@example.com)"
 notifier.ping message
 ```
 
+## Blocks
+
+This plugin supports the [Slack blocks format](https://app.slack.com/block-kit-builder/) and [block kit builder](https://app.slack.com/block-kit-builder/).
+
+```ruby
+blocks = [
+  {
+    "type": "section",
+    "text": {
+      "type": "plain_text",
+      "text": "This is a plain text section block.",
+    }
+  },
+  {
+    "type": "section",
+    "text": {
+      "type": "plain_text",
+      "text": "This is a plain text section block.",
+    }
+  }
+]
+
+notifier.post(blocks: blocks)
+```
+
 ## Additional parameters
 
 Any key passed to the `post` method is posted to the webhook endpoint. Check out the [Slack webhook documentation](https://api.slack.com/incoming-webhooks) for the available parameters.
